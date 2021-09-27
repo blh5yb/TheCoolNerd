@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CONTACT } from '../constants/formValidationMessages';
 import { HelperService } from '../providers/helper.service';
+import { AngularFireFunctions } from '@angular/fire/functions';
 
 @Component({
   selector: 'app-contact',
@@ -26,15 +27,40 @@ export class ContactPage implements OnInit {
     summary: '',
   };
   validationMessage: any = CONTACT;
-  
+
+  mail_res = '';
+  is_loading = false;
 
   constructor(
     private helperService: HelperService,
+    private functions: AngularFireFunctions,
   ) { }
 
   ngOnInit() {
     this.createFormControl();
     this.createForm();
+  }
+
+  onSubmit(){
+    this.is_loading = true;
+    console.log('submit');
+    const fname = this.contactForm.controls["first_name"].value;
+    const lname = this.contactForm.controls["last_name"].value;
+    const contact_email = this.contactForm.controls["email"].value;
+    const org = this.contactForm.controls["company"].value;
+    const description = this.contactForm.controls["summary"].value;
+
+    const email_info = {
+      "body": "first name: "+ fname + "\nlast name: " + lname +
+              "\nemail: " + contact_email + "\ncompany: " + org +
+              "\ndescription: " + description
+    }
+    this.functions.httpsCallable("sendMail")(email_info)
+      .subscribe(res => {
+        console.log(res);
+        this.mail_res = res;
+        this.is_loading = false;
+      })
   }
 
   createFormControl(){

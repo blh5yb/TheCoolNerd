@@ -22,14 +22,6 @@ const routes: Routes = [
   {
     path: 'skills',
     loadChildren: () => import('./skills/skills.module').then( m => m.SkillsPageModule)
-  },
-  {
-    path: 'resume',
-    loadChildren: () => import('./resume/resume.module').then( m => m.ResumePageModule)
-  },
-  {
-    path: 'music',
-    loadChildren: () => import('./music/music.module').then( m => m.MusicPageModule)
   }
 ];
 

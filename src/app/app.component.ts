@@ -9,8 +9,6 @@ export class AppComponent {
     { title: 'Home', url: '/home', icon: 'person' },
     { title: 'Projects', url: '/projects', icon: 'analytics' },
     { title: 'Skills', url: '/skills', icon: 'code-working'},
-    { title: 'Resume', url: '/resume', icon: 'briefcase'},
-    { title: 'Music', url: '/music', icon: 'musical-notes' },
     { title: 'Contact Me', url: '/contact', icon: 'mail' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];

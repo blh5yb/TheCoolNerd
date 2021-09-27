@@ -9,6 +9,7 @@
   </ion-toolbar>
 </ion-header>
 
+<app-alert *ngIf="mail_res" [message]="mail_res" (close)="onClose()"></app-alert>
 <ion-content>
   <ion-grid fixed>
     <ion-row>
@@ -20,7 +21,7 @@
             </ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <form [formGroup]="contactForm" autocomplete="off">
+            <form [formGroup]="contactForm" autocomplete="off" (ngSubmit)="onSubmit()">
               <ion-item>
                 <ion-label position="floating">First Name</ion-label>
                 <ion-input type="text" formControlName="first_name"></ion-input>
@@ -51,7 +52,9 @@
                 <ion-textarea formControlName="summary"></ion-textarea>
               </ion-item>
               <div *ngIf="summary.invalid && (summary.dirty || summary.touched)" class="error-message">{{formError.summary}}</div>
-              <ion-button color="success" expand="block" class="ion-margin-top" [disabled]="contactForm.invalid">Submit</ion-button>
+              <ion-button color="success" expand="block" class="ion-margin-top" [disabled]="contactForm.invalid" (click)="onSubmit()">Submit
+                <ion-spinner *ngIf="is_loading"></ion-spinner>
+              </ion-button>
             </form>
           </ion-card-content>
         </ion-card>
