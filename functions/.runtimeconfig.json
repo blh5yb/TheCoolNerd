@@ -4,7 +4,7 @@
     "secure": "false",
     "port": "587",
     "host": "smtp.gmail.com",
-    "pass": "fszpydkxgfkllnvo",
+    "pass": "",
     "service": "gmail"
   }
 }
