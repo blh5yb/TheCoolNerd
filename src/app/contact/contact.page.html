@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-left">
+      Contact Me
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<app-alert *ngIf="mail_res" [message]="mail_res" (close)="onClose()"></app-alert>
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">
+              Contact Form
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <form [formGroup]="contactForm" autocomplete="off" (ngSubmit)="onSubmit()">
+              <ion-item>
+                <ion-label position="floating">First Name</ion-label>
+                <ion-input type="text" formControlName="first_name"></ion-input>
+              </ion-item>
+              <div *ngIf="first_name.invalid && (first_name.dirty || first_name.touched)" class="error-message">{{formError.first_name}}</div>
+              <ion-item>
+                <ion-label position="floating">Last Name</ion-label>
+                <ion-input type="text" formControlName="last_name"></ion-input>
+              </ion-item>
+              <div *ngIf="last_name.invalid && (last_name.dirty || last_name.touched)" class="error-message">{{formError.last_name}}</div>
+              <ion-item>
+                <ion-label position="floating">Email Address</ion-label>
+                <ion-input type="email" formControlName="email"></ion-input>
+              </ion-item>
+              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">{{formError.email}}</div>
+              <ion-item>
+                <ion-label position="floating">Company</ion-label>
+                <ion-input formControlName="company"></ion-input>
+                <!--<ion-label position="floating">Inquiry Type</ion-label>
+                <ion-select>
+                  <ion-select-option value="bioinformatics">Full Time Employment</ion-select-option>
+                  <ion-select-option value="bioinformatics">Contracting</ion-select-option>
+                  <ion-select-option value="bioinformatics">Contracting</ion-select-option>
+                </ion-select>-->
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Summary</ion-label>
+                <ion-textarea formControlName="summary"></ion-textarea>
+              </ion-item>
+              <div *ngIf="summary.invalid && (summary.dirty || summary.touched)" class="error-message">{{formError.summary}}</div>
+              <ion-button color="success" expand="block" class="ion-margin-top" [disabled]="contactForm.invalid" (click)="onSubmit()">Submit
+                <ion-spinner *ngIf="is_loading"></ion-spinner>
+              </ion-button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

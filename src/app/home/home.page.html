@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-left">
+      The Cool Nerd
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-avatar class="image-center" style="width: 25%;height: 25%;">
+              <img src="../../assets/icon/profile.jpg">
+            </ion-avatar>
+            <ion-card-title class="ion-text-center">
+              Barry Hykes Jr
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-item class="ion-text-center">
+              <ion-label>{{ profession }}
+                <br>Let's Collaborate!
+                <br>
+              </ion-label>
+            </ion-item>
+            <ion-text class="padding">
+              <a style="cursor: pointer;" routerLink="/contact">
+                <ion-icon name="mail" style="padding:10px;" routerLinkActive="active"></ion-icon>
+              </a>
+              <a style="cursor: pointer;" href="https://github.com/blh5yb">
+                <ion-icon name="logo-github" style="padding:10px;" routerLinkActive="active"></ion-icon>
+              </a>
+              <a style="cursor: pointer;" href="https://www.linkedin.com/in/barry-hykes-jr-m-s-65b87bb0/">
+                <ion-icon name="logo-linkedin" style="padding:10px;" routerLinkActive="active"></ion-icon>
+              </a>
+              <a style="cursor: pointer;" href="https://scholar.google.com/citations?user=3xWg4IoAAAAJ&hl=en">
+                <ion-icon name="school" style="padding:10px;" routerLinkActive="active"></ion-icon>
+              </a>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
