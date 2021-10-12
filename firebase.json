@@ -13,5 +13,19 @@
     "ui": {
       "enabled": true
     }
+  },
+  "hosting": {
+    "public": "dist/thecoolnerd",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   }
 }
