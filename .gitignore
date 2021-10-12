@@ -1,6 +1,7 @@
 # Angular stuff
 node_modules
 package-lock.json
+.runtimeconfig.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

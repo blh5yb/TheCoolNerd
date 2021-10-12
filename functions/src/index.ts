@@ -31,14 +31,15 @@ export const sendMail = functions.https.onCall(
         subject: "TheCoolNerdInquiry",
         text: data.body,
       };
-      let status: any;
-      await transporter.sendMail(mailOptions, function(error: any) {
+      let status = "Email Sent";
+      await transporter.sendMail(mailOptions, function(error: any, info: any) {
         if (error) {
-          status = error;
-        } else {
-          status = "success";
+          status = "Email Error. Please try again later";
+          console.log(error);
+          // return console.log(error);
+          // res.sendStatus(500);
         }
-        return status;
       });
+      return status;
     }
 );

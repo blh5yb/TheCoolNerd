@@ -34,7 +34,9 @@ export class ContactPage implements OnInit {
   constructor(
     private helperService: HelperService,
     private functions: AngularFireFunctions,
-  ) { }
+  ) {
+    // functions.useEmulator("localhost", 5001); 
+  }
 
   ngOnInit() {
     this.createFormControl();
@@ -56,7 +58,7 @@ export class ContactPage implements OnInit {
               "\ndescription: " + description
     }
     this.functions.httpsCallable("sendMail")(email_info)
-      .subscribe(res => {
+      .subscribe((res: any) => {
         console.log(res);
         this.mail_res = res;
         this.is_loading = false;
@@ -84,6 +86,11 @@ export class ContactPage implements OnInit {
 
   onFormValueChanged(data) {
     this.formError = this.helperService.prepareValidationMessage(this.contactForm, this.validationMessage, this.formError)
+  }
+
+  onClose(){
+    this.mail_res = '';
+    this.contactForm.reset();
   }
 
 }

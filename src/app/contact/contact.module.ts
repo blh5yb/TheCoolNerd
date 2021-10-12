@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedPageModule } from '../shared/shared.module';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -14,7 +15,8 @@ import { ContactPage } from './contact.page';
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-    ContactPageRoutingModule
+    ContactPageRoutingModule,
+    SharedPageModule
   ],
   declarations: [ContactPage]
 })

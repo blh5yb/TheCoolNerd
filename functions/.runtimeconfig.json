@@ -1,10 +1,10 @@
 {
   "mail_cred": {
+    "pass": "fszpydkxgfkllnvo",
+    "service": "gmail",
     "user": "blhykes@gmail.com",
-    "secure": "false",
     "port": "587",
     "host": "smtp.gmail.com",
-    "pass": "",
-    "service": "gmail"
+    "secure": "false"
   }
 }
