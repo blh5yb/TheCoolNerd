@@ -1,0 +1,21 @@
+.border {
+    margin: auto; 
+    display: flex; 
+    width: 90%; 
+    height: 90%; 
+    border: 3px solid #1FAD12; 
+    padding: 15px;
+}
+
+.center-image {
+    margin: auto;
+    padding: 10px;
+    width: 90%;
+    height: 90%
+}
+
+.row-center {
+    margin-top: 5px; 
+    //align-items: center; 
+    justify-content: center;
+}

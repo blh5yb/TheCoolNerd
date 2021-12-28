@@ -15,7 +15,7 @@
     }
   },
   "hosting": {
-    "public": "dist/thecoolnerd",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
